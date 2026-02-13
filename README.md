@@ -3,8 +3,21 @@
 # A. Executive Summary
     This audit evaluated delivery performance across regions by integrating order, review, and customer location data. The analysis reveals a clear negative relationship between delivery delays and customer satisfaction, with longer delays associated with significantly lower review scores. While delivery issues exist nationwide, certain states — particularly RR, AP, AC, and AM — exhibit substantially higher delivery estimation errors, indicating regional operational inefficiencies. The findings suggest that both improving delivery time forecasting accuracy and addressing region-specific logistics bottlenecks could meaningfully enhance customer experience and reduce negative reviews.
 # B. Project Links
+- Notebook: https://github.com/Hakman2/The-Logistics-Auditor.git
+
+- Dashboard:https://hakman2-the-logistics-auditor-app-iwqh1j.streamlit.app/
+
+- Presentation: https://docs.google.com/presentation/d/1Whav0UP0x8iUZM_Nkq57tjFsJxeJwTyUdQZDHJUZG5M/edit?usp=sharing
 
 # C. Technical Explanation
+    Data Cleaning & Integration:
+The project required joining multiple relational tables including Orders, Reviews, and Customers using appropriate keys (order_id and customer_id). Care was taken to avoid duplicate records during joins. Date columns were converted to datetime format to enable accurate delay calculations. Orders with missing delivery dates (canceled or unavailable) were excluded from delay analysis.
+
+Feature Engineering:
+A new metric, days_difference, was created to calculate the gap between estimated and actual delivery dates. Orders were classified into "On Time", "Late", and "Super Late" categories based on delay thresholds. Additionally, an absolute_delay metric was engineered to measure delivery estimate accuracy across regions.
+
+Candidate’s Choice Addition:
+The "Delivery Promise Accuracy" analysis calculates the average absolute delay per state. This metric provides business value by highlighting regions where delivery forecasting is least accurate, allowing targeted operational improvements.
 
 **Client:** Veridi Logistics (Global E-Commerce Aggregator)  
 **Deliverable:** Public Dashboard, Code Notebook & Insight Presentation
