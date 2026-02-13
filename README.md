@@ -1,5 +1,11 @@
 # Project Brief: The "Last Mile" Logistics Auditor
 
+# A. Executive Summary
+    This audit evaluated delivery performance across regions by integrating order, review, and customer location data. The analysis reveals a clear negative relationship between delivery delays and customer satisfaction, with longer delays associated with significantly lower review scores. While delivery issues exist nationwide, certain states — particularly RR, AP, AC, and AM — exhibit substantially higher delivery estimation errors, indicating regional operational inefficiencies. The findings suggest that both improving delivery time forecasting accuracy and addressing region-specific logistics bottlenecks could meaningfully enhance customer experience and reduce negative reviews.
+# B. Project Links
+
+# C. Technical Explanation
+
 **Client:** Veridi Logistics (Global E-Commerce Aggregator)  
 **Deliverable:** Public Dashboard, Code Notebook & Insight Presentation
 
