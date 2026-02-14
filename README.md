@@ -1,7 +1,7 @@
-# Project Brief: The "Last Mile" Logistics Auditor
+# The "Last Mile" Logistics Auditor
 
 # A. Executive Summary
-    This audit evaluated delivery performance across regions by integrating order, review, and customer location data. The analysis reveals a clear negative relationship between delivery delays and customer satisfaction, with longer delays associated with significantly lower review scores. While delivery issues exist nationwide, certain states — particularly RR, AP, AC, and AM — exhibit substantially higher delivery estimation errors, indicating regional operational inefficiencies. The findings suggest that both improving delivery time forecasting accuracy and addressing region-specific logistics bottlenecks could meaningfully enhance customer experience and reduce negative reviews.
+This audit evaluated delivery performance across regions by integrating order, review, and customer location data. The analysis reveals a clear negative relationship between delivery delays and customer satisfaction, with longer delays associated with significantly lower review scores. While delivery issues exist nationwide, certain states — particularly RR, AP, AC, and AM — exhibit substantially higher delivery estimation errors, indicating regional operational inefficiencies. The findings suggest that both improving delivery time forecasting accuracy and addressing region-specific logistics bottlenecks could meaningfully enhance customer experience and reduce negative reviews.
 # B. Project Links
 - Notebook: https://github.com/Hakman2/The-Logistics-Auditor.git
 
@@ -11,7 +11,12 @@
 
 # C. Technical Explanation
     Data Cleaning & Integration:
-The project required joining multiple relational tables including Orders, Reviews, and Customers using appropriate keys (order_id and customer_id). Care was taken to avoid duplicate records during joins. Date columns were converted to datetime format to enable accurate delay calculations. Orders with missing delivery dates (canceled or unavailable) were excluded from delay analysis.
+The project required joining multiple relational tables including Orders, Reviews, and Customers using appropriate keys (order_id and customer_id). Care was taken to avoid duplicate records during joins, particularly when handling one-to-many relationships.
+
+Date columns were converted to datetime format to enable accurate delay calculations. A new feature, days_difference, was created to measure the gap between the estimated delivery date and the actual delivery date. A negative days_difference value indicates that the order was delivered earlier than promised, while a positive value indicates late delivery.
+
+Orders with missing delivery dates (e.g., canceled or unavailable orders) were excluded from delay analysis because no actual delivery occurred, making delay calculations invalid..
+
 
 Feature Engineering:
 A new metric, days_difference, was created to calculate the gap between estimated and actual delivery dates. Orders were classified into "On Time", "Late", and "Super Late" categories based on delay thresholds. Additionally, an absolute_delay metric was engineered to measure delivery estimate accuracy across regions.
